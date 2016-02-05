@@ -12,5 +12,9 @@
 </head>
 <body>
     <h1>Leaderboard</h1>
+
+    <form action="/play">
+        <input type="submit" value="Start a New Game"/>
+    </form>
 </body>
 </html>

@@ -12,6 +12,8 @@
   </head>
   <body>
     <h1>Welcome!</h1>
-    <button>Login and Play</button>
+    <form action="/login">
+      <input type="submit" value="Login to Play"/>
+    </form>
   </body>
 </html>
