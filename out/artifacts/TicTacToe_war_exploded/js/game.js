@@ -127,15 +127,18 @@ function drawX(t){
 }
 
 function checkSelectedTile(x, y){
+    console.log("Clickety2");
     for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
             var left = tiles[i][j].x,
-                right = tiles[i][j].x + tsize,
+                right = left + tsize,
                 top = tiles[i][j].y,
-                bottom = tiles[i][j].y + tsize;
+                bottom = top + tsize;
 
-            if(x>=left && x<=right && y>=top && y<=bottom){
+            if((x>=left) && (x<=right) && (y>=top) && (y<=bottom)){
+                console.log("Clickety3");
                 if(tiles[i][j].selected == false && player==1){
+                    console.log("Clickety4");
                     player = 2;
                     selected = true;
                     tiles[i][j].selected = true;
@@ -147,6 +150,7 @@ function checkSelectedTile(x, y){
 }
 
 function gameClick(e){
+    console.log("Clickety1");
     checkSelectedTile(e.offsetX, e.offsetY);
 }
 
@@ -244,7 +248,7 @@ function replayClick(e){
 
     if(selected){
         canvas.removeEventListener("click", replayClick);
-        
+
         if(startingPlayer == 1)
             startingPlayer = 2;
         else
