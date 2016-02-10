@@ -244,7 +244,7 @@ function replayClick(e){
 
     if(selected){
         canvas.removeEventListener("click", replayClick);
-        
+
         if(startingPlayer == 1)
             startingPlayer = 2;
         else
