@@ -24,6 +24,14 @@
         <servlet-name>play</servlet-name>
         <url-pattern>/play</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DBServlet</servlet-name>
+        <servlet-class>tictactoe.DBServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DBServlet</servlet-name>
+        <url-pattern>/DBServlet</url-pattern>
+    </servlet-mapping>
 
     <security-constraint>
         <web-resource-collection>

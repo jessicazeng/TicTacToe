@@ -11,6 +11,8 @@
           <element id="library" level="project" name="AppEngine API" />
           <element id="library" level="project" name="AppEngine ORM" />
           <element id="library" level="project" name="Java EE 6-Java EE 6" />
+          <element id="library" level="project" name="mysql:mysql-connector-java:5.1.37" />
+          <element id="library" level="project" name="javax.servlet:jstl:1.2" />
         </element>
       </element>
     </root>
