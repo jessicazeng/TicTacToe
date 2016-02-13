@@ -16,8 +16,10 @@
   </head>
   <body>
     <h1>Welcome!</h1>
-    <form action="/login">
-      <input type="submit" value="Login to Play"/>
-    </form>
+    <%--<form action="/login">--%>
+      <%--<input type="submit" value="Login to Play"/>--%>
+    <%--</form>--%>
+
+    <a href="/login?login=true">Login to Play</a>
   </body>
 </html>

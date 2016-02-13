@@ -22,6 +22,9 @@
     <p id="instruction"></p>
     <canvas id="board" width="350" height="350">Your browser does not support the canvas element.</canvas>
 
+    <a href="leaderboard.jsp">Go Back to Leaderboard</a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="js/game.js"></script>
 </body>
 </html>

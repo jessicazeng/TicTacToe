@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.*;
 
 /**
  * Created by Jessica on 2/4/2016.
@@ -50,15 +51,38 @@ public class Login extends HttpServlet {
         UserService userService = UserServiceFactory.getUserService();
         User user = userService.getCurrentUser();
 
-        if(user == null)
-            response.sendRedirect(userService.createLoginURL(request.getRequestURI()));
-        else{
+        if(user == null) {
+            Boolean login = Boolean.valueOf(request.getParameter("login"));
+            if(login == true)
+                response.sendRedirect(userService.createLoginURL(request.getRequestURI()));
+            else
+                response.sendRedirect("index.jsp");
+        } else{
+            try {
+                Connection conn = DriverManager.getConnection(url, "root", password);
+
+                try {
+                    ResultSet rs = null;
+                    String statement = "SELECT * FROM Players WHERE Nickname = '" + user.getNickname() + "'";
+                    PreparedStatement stmt = conn.prepareStatement(statement);
+                    rs = stmt.executeQuery();
+
+                    if(!rs.next()){
+                        int result = 0;
+                        statement = "INSERT INTO Players VALUES ('" + user.getNickname() + "', 0)";
+                        stmt = conn.prepareStatement(statement);
+                        result = stmt.executeUpdate();
+                    }
+                } finally {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+
             context.setAttribute("Nickname", user.getNickname());
             response.sendRedirect("leaderboard.jsp");
         }
-
-//        String nextJSP = "leaderboard.jsp";
-//        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-//        dispatcher.forward(request,response);
     }
 }

@@ -29,12 +29,13 @@
         SELECT * FROM Players ORDER BY Wins DESC;
     </sql:query>
 
-    <h1>Leaderboard</h1>
-    <h3>Hello, ${applicationScope['Nickname']}</h3>
+    <div>
+        ${applicationScope['Nickname']} | <a href="/logout">Logout</a>
+    </div>
 
-    <form action="/play">
-        <input type="submit" value="Start a New Game"/>
-    </form>
+    <h1>Leaderboard</h1>
+
+    <a href="/play">Start a New Game</a>
 
     <table>
         <tr>

@@ -127,7 +127,6 @@ function drawX(t){
 }
 
 function checkSelectedTile(x, y){
-    console.log("Clickety2");
     for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
             var left = tiles[i][j].x,
@@ -136,9 +135,7 @@ function checkSelectedTile(x, y){
                 bottom = top + tsize;
 
             if((x>=left) && (x<=right) && (y>=top) && (y<=bottom)){
-                console.log("Clickety3");
                 if(tiles[i][j].selected == false && player==1){
-                    console.log("Clickety4");
                     player = 2;
                     selected = true;
                     tiles[i][j].selected = true;
@@ -150,7 +147,6 @@ function checkSelectedTile(x, y){
 }
 
 function gameClick(e){
-    console.log("Clickety1");
     checkSelectedTile(e.offsetX, e.offsetY);
 }
 
@@ -217,8 +213,11 @@ function drawResult(result, player){
     } else{
         if(player == 'O')
             text = "You lose.";
-        else
+        else{
             text = "You win!";
+
+            $.post("/DBServlet", {'win': 1}).done(function( data ) { console.log( "Data Loaded: " + data ); });
+        }
     }
     ctx.fillText(text, csize/2, (3*csize)/7);
 
