@@ -19,7 +19,7 @@
 <body>
     <h1>Tic-Tac-Toe</h1>
 
-    <p id="instruction"></p>
+    <p id="instruction">Game loading...</p>
     <canvas id="board" width="350" height="350">Your browser does not support the canvas element.</canvas>
 
     <a href="leaderboard.jsp">Go Back to Leaderboard</a>

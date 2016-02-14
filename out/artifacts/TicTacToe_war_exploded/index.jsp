@@ -15,11 +15,8 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
   </head>
   <body>
-    <h1>Welcome!</h1>
-    <%--<form action="/login">--%>
-      <%--<input type="submit" value="Login to Play"/>--%>
-    <%--</form>--%>
+    <img src="img/logo.png" id="logo">
 
-    <a href="/login?login=true">Login to Play</a>
+    <p><a href="/login?login=true" class="button blue">Login to Play</a></p>
   </body>
 </html>

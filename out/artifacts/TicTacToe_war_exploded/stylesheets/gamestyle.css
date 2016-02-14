@@ -4,3 +4,11 @@
     margin-right: auto;
     cursor: pointer;
 }
+
+a {
+    color: #33cccc;
+}
+
+a:hover {
+    font-weight: bold;
+}

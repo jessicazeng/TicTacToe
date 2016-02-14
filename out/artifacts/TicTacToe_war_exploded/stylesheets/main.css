@@ -16,3 +16,36 @@ body {
 h1 {
     font-family: 'Playfair Display', serif;
 }
+
+#logo {
+    margin: 50px 0px 10px 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.button {
+    display: block;
+    padding: 20px;
+    width: 250px;
+    margin: 20px auto;
+    color: #fff;
+    font-size: 20px;
+}
+
+.blue {
+    background-color: #33cccc;
+}
+
+.blue:hover {
+    opacity: 0.8;
+}
+
+.orange {
+    background-color: #ffcc99;
+}
+
+.orange:hover {
+    opacity: 0.8;
+}
