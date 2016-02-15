@@ -43,7 +43,6 @@ public class DBServlet extends HttpServlet {
                     String statement = "UPDATE Players SET Wins = Wins + 1 WHERE Nickname = '" + request.getSession().getServletContext().getAttribute("Nickname") + "'";
                     PreparedStatement stmt = conn.prepareStatement(statement);
                     retValue = stmt.executeUpdate();
-                    System.out.println(retValue);
                 }
             } finally {
                 conn.close();

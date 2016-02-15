@@ -23,9 +23,14 @@ function tile(num, x, y, selected, value){
     this.value = value;
 }
 
-var counter = 6;
+var counter = 0;
 
-var timer = setInterval(function() {
+function initTimer(){
+    counter = 6;
+    setTimeout(timer, 1000);
+}
+
+function timer(){
     counter--;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -34,13 +39,16 @@ var timer = setInterval(function() {
     ctx.textAlign = "center";
     ctx.fillText(counter, csize/2, csize/2);
 
-    if (counter == 0) {
-        clearInterval(timer);
-        init();
-    }
-}, 1000);
+    if (counter == 0)
+        initBoard();
+    else
+        setTimeout(timer, 1000);
+}
 
-function init(){tiles = [];
+initTimer();
+
+function initBoard(){
+    tiles = [];
     selectedTiles = [];
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -216,7 +224,7 @@ function drawResult(result, player){
         else{
             text = "You win!";
 
-            $.post("/DBServlet", {'win': 1}).done(function( data ) { console.log( "Data Loaded: " + data ); });
+            $.post("/DBServlet", {'win': 1}).done(function( data ) { console.log( "Data Loaded." ); });
         }
     }
     ctx.fillText(text, csize/2, (3*csize)/7);
@@ -253,7 +261,7 @@ function replayClick(e){
         else
             startingPlayer = 1;
 
-        init();
+        initTimer();
     } else{
         console.log("No");
     }
